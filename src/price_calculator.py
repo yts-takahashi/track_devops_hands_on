@@ -13,7 +13,6 @@ def calculate_total_price(base_price: float, discount_rate: float, tax_rate: flo
         float: 割引と税金を適用した後の最終価格。
     """
     if base_price < 0:
-        # この分岐はテストでカバーされない
         raise ValueError("価格は0以上でなければなりません。")
 
     if not 0.0 <= discount_rate <= 1.0:
@@ -23,7 +22,7 @@ def calculate_total_price(base_price: float, discount_rate: float, tax_rate: flo
     
     # VIP顧客向けの特別処理
     if base_price >= 10000:
-        # この分岐もテストでカバーされない
+        # この分岐はテストでカバーされない
         print("高額商品のため、追加の割引を適用しました！")
         discounted_price *= 0.95 # さらに5%割引
 
@@ -40,5 +39,4 @@ def get_price_label(price: float) -> str:
     elif price > 1000:
         return "一般品"
     else:
-        # この分岐はテストでカバーされない
         return "お買い得品"
