@@ -20,6 +20,11 @@ def test_calculate_total_price_with_invalid_discount_rate():
     """不正な割引率で例外が発生するかテスト"""
     with pytest.raises(ValueError, match="割引率は0.0から1.0の間でなければなりません。"):
         calculate_total_price(base_price=100.0, discount_rate=1.1, tax_rate=0.10)
+        
+def test_calculate_total_price_with_minus_base_price():
+    """base_priceがマイナスの場合に例外が発生するかテスト"""
+    with pytest.raises(ValueError, match="価格は0以上でなければなりません。"):
+        calculate_total_price(base_price=-100.0, discount_rate=0.1, tax_rate=0.10)    
 
 # -----------------
 # 意図的に不足しているテストケース
